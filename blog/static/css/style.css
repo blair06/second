@@ -1,0 +1,22 @@
+h1 {font-family: 'Teko', sans-serif;}
+p {font-family: 'Teko', sans-serif;}
+
+.jumbotron {
+    background-color: #ff9999;
+}
+
+.navbar {
+    background-color: #ff9999;
+}
+.card {
+    float:left;
+}
+.box {
+    padding: 0px 300px 0px 100px;
+    border: solid 1px black;
+}
+.btn {
+    border-color:#ffcccc;
+    background-color: #ff9999;
+}
+

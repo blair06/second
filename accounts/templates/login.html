@@ -1,0 +1,19 @@
+{% extands 'base.html %}
+{% block contents %}
+<div class="container">
+    <h1>Login</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrtoken %}
+        User Name:
+        <br>
+        <input name="username" type="text" value="">
+        <br>
+        Password:f_
+        <br>
+        <input name="password" type="password" value="">
+        <br>
+        <br>
+        <input name="btn btn-primary " type="submit" value="Login">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<html>
+
+{% block contents %}
+<body> 
+<div class="jumbotron p-4 p-md-5 ">
+        <center>
+                <div class="col-md-6 px-0">
+                        <h1 class="display-4 text-white font-weight-bold">My First Blog Project</h1>
+                        <p class="lead my-3"></p>
+                        <p class="lead mb-0"><a href="{%url 'portfolio'%}" class=" font-weight-bold" style="color: #33d6ff">Go to
+                                        portfolio</a></p>
+                </div>
+        </center>  
+        
+
+</div>
+        <div class="container" style="margin-left:290px;">
+                {% for blog in posts %}
+                <div class="card" style="width: 18rem; height: 250px; margin:10px;">
+                        <div class="card-body">
+                                <h5 class="card-title">TITLE: {{blog.title}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">DATE: {{blog.pub_date}}</h6>
+                                <p class="card-text">{{blog.summary}}</p>
+                                <a href="{%url 'detail' blog.id%}" class="card-link">More</a>
+                        </div>
+                </div>
+                {%endfor%}
+        </div>
+
+<div class="btn-group" role="group" aria-label="Basic example" style="margin:370px 0px 0px 650px;">
+        {%if posts.has_previous%}
+        <a class="btn btn-secondary" href="?page=1">First</a>
+        <a class="btn btn-secondary" href="?page={{posts.previous_page_number}}">Previous</a>
+        {%endif%}
+
+        {%if posts.has_next%}
+        <a class="btn btn-secondary" href="?page={{posts.next_page_number}}">NEXT</a>
+        <div class="btn btn-secondary" style="color:#80d7ff; background-color: white;">
+                <span>{{posts.number}}</span>
+                <span>of</span>
+                <span>{{posts.paginator.num_pages}}</span>
+        </div>
+        <a class="btn btn-secondary" href="?page={{posts.paginator.num_pages}}">LAST</a>
+        {%endif%}
+</div>
+        
+
+</body>
+{% endblock %}
+</html>
